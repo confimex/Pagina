@@ -10,135 +10,86 @@
 <style>
 
 :root {
-    --azul: #0A2B3E;
-    --naranja: #E65C2E;
+    --azul:#0A2B3E;
+    --naranja:#E65C2E;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;}
+
+/* LOGO */
+header{text-align:center;padding:20px;}
+.logo{width:420px;max-width:90%;}
+
+/* HERO */
+.hero{position:relative;height:90vh;overflow:hidden;}
+.hero img{position:absolute;width:100%;height:100%;object-fit:cover;}
+
+.capa{opacity:0;animation:fade 1s forwards;}
+.capa1{animation-delay:.5s;}
+.capa2{animation-delay:1.2s;}
+.capa3{animation-delay:2s;}
+.capa4{animation-delay:2.8s;}
+
+@keyframes fade{to{opacity:1;}}
+
+.hero-texto{
+position:absolute;
+top:25%;
+width:100%;
+text-align:center;
+color:white;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fff;
+.hero-texto h1{font-size:3rem;font-weight:900;}
+.hero-texto p{font-size:1.2rem;margin-top:10px;}
+
+.btn{
+background:var(--naranja);
+color:white;
+padding:14px 30px;
+margin-top:20px;
+display:inline-block;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 20px;
+/* SECCIONES */
+.seccion{padding:60px 20px;text-align:center;}
+.grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+
+.card{
+width:300px;
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
 }
 
-.logo {
-    width: 280px;
+.card img{width:100%;border-radius:10px;}
+
+/* CERTIFICACIONES */
+.cert{
+background:#f9f9f9;
+padding:60px 20px;
 }
 
-/* HERO ANIMADO */
-.hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
+.card-click{
+background:#fff;
+padding:20px;
+border-radius:10px;
+cursor:pointer;
+width:250px;
 }
 
-.hero img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* CAPAS */
-.capa {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: aparecer 1s forwards;
-}
-
-.capa1 { animation-delay: 0.5s; }
-.capa2 { animation-delay: 1.2s; }
-.capa3 { animation-delay: 2s; }
-.capa4 { animation-delay: 2.8s; }
-
-@keyframes aparecer {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* TEXTO CENTRAL */
-.hero-texto {
-    position: absolute;
-    top: 20%;
-    width: 100%;
-    text-align: center;
-    color: white;
-}
-
-.hero-texto h1 {
-    font-size: 3rem;
-    font-weight: 900;
-}
-
-.hero-texto p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-/* BOTÓN */
-.btn {
-    margin-top: 20px;
-    background: var(--naranja);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-}
-
-/* SECCIÓN CERTIFICACIONES */
-.seccion {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    width: 220px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card:hover {
-    background: #E65C2E;
-    color: white;
-}
-
-/* LISTAS OCULTAS */
-.lista {
-    display: none;
-    margin-top: 10px;
-    text-align: left;
-}
+.lista{display:none;text-align:left;margin-top:10px;}
 
 /* FOOTER */
-footer {
-    background: var(--azul);
-    color: white;
-    text-align: center;
-    padding: 30px;
+footer{
+background:var(--azul);
+color:white;
+text-align:center;
+padding:30px;
 }
 
 </style>
@@ -148,77 +99,131 @@ footer {
 
 <!-- LOGO -->
 <header>
-    <img src="logo.png" class="logo">
+<img src="logo.png" class="logo">
 </header>
 
-<!-- HERO CON CAPAS -->
+<!-- HERO -->
 <section class="hero">
 
-    <img src="fondo.jpg">
+<img src="fondo.jpg">
 
-    <img src="capa1.png" class="capa capa1">
-    <img src="capa2.png" class="capa capa2">
-    <img src="capa3.png" class="capa capa3">
-    <img src="capa4.png" class="capa capa4">
+<img src="capa1.png" class="capa capa1">
+<img src="capa2.png" class="capa capa2">
+<img src="capa3.png" class="capa capa3">
+<img src="capa4.png" class="capa capa4">
 
-    <div class="hero-texto">
-        <h1>OPTIMIZA TU PLANTA</h1>
-        <p>Transformamos talleres en empresas productivas</p>
-        <a href="#certificaciones" class="btn">SOLICITAR ASESORÍA</a>
-    </div>
-
-</section>
-
-<!-- CERTIFICACIONES -->
-<section id="certificaciones" class="seccion">
-
-    <h2>CERTIFICACIONES</h2>
-
-    <div class="grid">
-
-        <div class="card" onclick="toggle('corte')">
-            CORTADOR
-            <div id="corte" class="lista">
-                <p>- Uso de mesa de corte</p>
-                <p>- Optimización de tela</p>
-                <p>- Técnicas de corte</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="toggle('trazo')">
-            TRAZADOR
-            <div id="trazo" class="lista">
-                <p>- Trazo manual</p>
-                <p>- Trazo digital CAD</p>
-                <p>- Aprovechamiento tela</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="toggle('costura')">
-            COSTURERA
-            <div id="costura" class="lista">
-                <p>- Ensamble eficiente</p>
-                <p>- Control calidad</p>
-                <p>- Reducción tiempos</p>
-            </div>
-        </div>
-
-    </div>
+<div class="hero-texto">
+<h1>OPTIMIZA TU PLANTA</h1>
+<p>Transformamos talleres en empresas productivas</p>
+<a href="#asesoria" class="btn">SOLICITAR ASESORÍA</a>
+</div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- ANTES / DESPUES -->
+<section class="seccion">
+<h2>TRANSFORMACIÓN REAL</h2>
+
+<div class="grid">
+
+<div class="card">
+<p><strong>ANTES</strong></p>
+<img src="problema.jpg">
+</div>
+
+<div class="card">
+<p><strong>DESPUÉS</strong></p>
+<img src="antes_despues.jpg">
+</div>
+
+</div>
+</section>
+
+<!-- ASESORIA -->
+<section id="asesoria" class="seccion">
+
+<h2>DIAGNÓSTICO GRATUITO</h2>
+
+<div class="grid">
+<div class="card">
+<img src="asesoria.jpg">
+<p>Detectamos pérdidas y optimizamos tu planta directamente en tu taller.</p>
+<a href="#" class="btn">SOLICITAR</a>
+</div>
+</div>
+
+</section>
+
+<!-- SERVICIOS -->
+<section class="seccion">
+
+<h2>SERVICIOS</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="certificacion.jpg">
+<p>CERTIFICACIÓN</p>
+</div>
+
+<div class="card">
+<img src="capacitacion.jpg">
+<p>CAPACITACIÓN</p>
+</div>
+
+<div class="card">
+<img src="asistencia.jpg">
+<p>ASISTENCIA</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CERTIFICACIONES CLICK -->
+<section class="cert">
+
+<h2>ESPECIALIDADES</h2>
+
+<div class="grid">
+
+<div class="card-click" onclick="toggle('corte')">
+CORTADOR
+<div id="corte" class="lista">
+<p>- Corte profesional</p>
+<p>- Optimización tela</p>
+</div>
+</div>
+
+<div class="card-click" onclick="toggle('trazo')">
+TRAZADOR
+<div id="trazo" class="lista">
+<p>- Trazo manual</p>
+<p>- Trazo digital</p>
+</div>
+</div>
+
+<div class="card-click" onclick="toggle('costura')">
+COSTURERA
+<div id="costura" class="lista">
+<p>- Ensamble</p>
+<p>- Calidad</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
 <footer>
-    CONFIMEX | Innovación • Capacitación • Resultados
+CONFIMEX | Innovación • Capacitación • Resultados
 </footer>
 
 <script>
-
 function toggle(id){
-    let el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
+let el=document.getElementById(id);
+el.style.display=(el.style.display==="block")?"none":"block";
 }
-
 </script>
 
 </body>
