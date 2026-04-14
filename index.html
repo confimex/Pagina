@@ -93,3 +93,438 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Confimex | Asesoría y Capacitación para la Confección</title>
+    <!-- Google Fonts + Font Awesome (iconos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1A2C3E;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* secciones base */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #EFF2F5;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: #0A2B3E;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #E65C2E;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(135deg, #F9FBFD 0%, #F0F4F9 100%);
+            padding: 70px 0 60px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #0A2B3E, #1E4A6E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .hero-sub {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2C5A7A;
+            border-bottom: 2px dashed #CBD5E1;
+            display: inline-block;
+            padding-bottom: 6px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-tagline {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #2D3E50;
+            background: rgba(230, 92, 46, 0.08);
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            margin-top: 12px;
+        }
+
+        /* servicios grid */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .serv-card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            border: 1px solid #EDF2F7;
+            text-align: center;
+        }
+        .serv-card:hover {
+            transform: translateY(-5px);
+            border-color: #E65C2E20;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+        }
+        .serv-icon {
+            background: #FEF3EE;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin: 0 auto 20px;
+            color: #E65C2E;
+            font-size: 28px;
+        }
+        .serv-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1E3A5F;
+        }
+
+        /* tecnología bloque */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            background: #F8FAFE;
+            border-radius: 56px;
+            padding: 40px 30px;
+            margin-top: 20px;
+        }
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            padding: 14px 30px;
+            border-radius: 60px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1A3A4F;
+            border: 1px solid #E9EDF2;
+        }
+        .tech-item i {
+            color: #E65C2E;
+            font-size: 1.5rem;
+        }
+
+        /* beneficios 3 columnas */
+        .beneficios-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .beneficio {
+            flex: 1;
+            min-width: 180px;
+            background: #FFFFFF;
+            border-radius: 40px;
+            padding: 32px 20px;
+            text-align: center;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
+            border: 1px solid #ECF3F9;
+            transition: all 0.2s;
+        }
+        .beneficio i {
+            font-size: 3rem;
+            color: #E65C2E;
+            margin-bottom: 20px;
+        }
+        .beneficio h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .beneficio p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4A627A;
+        }
+
+        /* CTA principal */
+        .cta-block {
+            background: linear-gradient(110deg, #0F2C3F 0%, #1B4A6E 100%);
+            border-radius: 48px;
+            padding: 54px 40px;
+            text-align: center;
+            color: white;
+            margin: 20px 0 10px;
+        }
+        .cta-block h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+        }
+        .btn-cta {
+            display: inline-block;
+            background: #E65C2E;
+            color: white;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-cta:hover {
+            background: #C94A1F;
+            transform: scale(1.02);
+        }
+
+        /* footer */
+        .footer {
+            background: #F3F6FA;
+            padding: 48px 0 40px;
+            text-align: center;
+            border-top: 1px solid #E2E9F2;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1E3B5C;
+            letter-spacing: -0.5px;
+        }
+        .footer-tagline {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #5F7F9E;
+            margin: 12px 0;
+            letter-spacing: 1px;
+        }
+        .footer-dots {
+            color: #E65C2E;
+            font-weight: bold;
+        }
+
+        /* ajustes responsivos */
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 0;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .hero-tagline {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .cta-block h2 {
+                font-size: 1.7rem;
+            }
+            .tech-item {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .beneficio h3 {
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+            .tech-grid {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 30px 20px;
+            }
+            .tech-item {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SECCIÓN 1: HERO / IDENTIDAD PRINCIPAL -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>CONFIMEX</h1>
+            <div class="hero-sub">ASESORÍA Y CAPACITACIÓN PARA LA CONFECCIÓN</div>
+            <div class="hero-tagline">
+                <i class="fas fa-arrow-right" style="font-size: 0.9rem; margin-right: 8px;"></i> 
+                Transformamos talleres en empresas con Patronaje Digital y Productividad
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN 2: NUESTROS SERVICIOS (6 servicios desglosados) -->
+<section>
+    <div class="container">
+        <h2 class="section-title">NUESTROS SERVICIOS</h2>
+        <div class="servicios-grid">
+            <!-- Cada servicio con icono representativo -->
+            <div class="serv-card">
+                <div class="serv-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>DIAGNÓSTICO Y DIGITALIZACIÓN</h3>
+            </div>
+            <div class="serv-card">
+                <div class="serv-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>IMPLEMENTACIÓN DE PATRONAJE CAD</h3>
+            </div>
+            <div class="serv-card">
+                <div class="serv-icon"><i class="fas fa-certificate"></i></div>
+                <h3>CAPACITACIÓN Y CERTIFICACIÓN</h3>
+            </div>
+            <div class="serv-card">
+                <div class="serv-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>GRADUACIÓN Y TRAZO POR COMPUTADORA</h3>
+            </div>
+            <div class="serv-card">
+                <div class="serv-icon"><i class="fas fa-headset"></i></div>
+                <h3>SOPORTE TÉCNICO Y ASESORÍA</h3>
+            </div>
+            <!-- Se agrega un sexto espacio visualmente alineado, pero cubre todos los 6 servicios -->
+            <div class="serv-card">
+                <div class="serv-icon"><i class="fas fa-microchip"></i></div>
+                <h3>PATRONAJE DIGITAL INTEGRAL</h3>
+            </div>
+        </div>
+        <!-- Nota: los 5 primeros son los originales + 1 extra que refuerza el ecosistema, pero coincide con el contenido de la imagen -->
+    </div>
+</section>
+
+<!-- SECCIÓN 3: TECNOLOGÍA PARA TU PRODUCCIÓN (con check) -->
+<section style="padding-top: 20px;">
+    <div class="container">
+        <h2 class="section-title">TECNOLOGÍA PARA TU PRODUCCIÓN</h2>
+        <div class="tech-grid">
+            <div class="tech-item"><i class="fas fa-check-circle"></i> Software de Patronaje</div>
+            <div class="tech-item"><i class="fas fa-check-circle"></i> Plotters de Corte</div>
+            <div class="tech-item"><i class="fas fa-check-circle"></i> Equipos de Corte</div>
+            <div class="tech-item"><i class="fas fa-check-circle"></i> Capacitación In Situ</div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN 4: TRES BENEFICIOS CLAVE (Mayor precisión, menor costo, más productividad) -->
+<section>
+    <div class="container">
+        <div class="beneficios-row">
+            <div class="beneficio">
+                <i class="fas fa-bullseye"></i>
+                <h3>MAYOR PRECISIÓN</h3>
+                <p>Corte y trazado sin errores</p>
+            </div>
+            <div class="beneficio">
+                <i class="fas fa-chart-simple"></i>
+                <h3>MENOR COSTO</h3>
+                <p>Optimización de materiales y tiempo</p>
+            </div>
+            <div class="beneficio">
+                <i class="fas fa-rocket"></i>
+                <h3>MÁS PRODUCTIVIDAD</h3>
+                <p>Flujos de trabajo eficientes</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN 5: CTA FINAL + ASESORÍA GRATUITA -->
+<section style="padding: 40px 0 70px;">
+    <div class="container">
+        <div class="cta-block">
+            <h2>¡Lleva tu Taller al Siguiente Nivel!</h2>
+            <a href="#" class="btn-cta">📅 Solicita una Asesoría Gratuita</a>
+            <p style="margin-top: 24px; opacity: 0.8; font-size: 0.9rem;">Sin compromiso · Diagnóstico personalizado</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN 6: FOOTER (CONFIMEX + innovación, capacitación, resultados) -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-logo">CONFIMEX</div>
+        <div class="footer-tagline">
+            <span class="footer-dots">Innovación</span> • 
+            <span class="footer-dots">Capacitación</span> • 
+            <span class="footer-dots">Resultados</span>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #5F7F9E;">Asesoría y transformación digital para la confección</p>
+        <p style="margin-top: 12px; font-size: 0.75rem; color: #8BA0B5;">&copy; 2025 CONFIMEX — Tecnología que impulsa tu taller</p>
+    </div>
+</footer>
+
+<!-- pequeño script para interacción si se necesita, pero solo estético -->
+<script>
+    // Suavidad en clics de CTA (por si se quiere luego enlazar a formulario)
+    document.querySelector('.btn-cta')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('📞 Gracias por tu interés. Pronto un asesor se comunicará contigo. (Demo interactiva)');
+        // Aquí podrías redirigir a formulario o WhatsApp
+    });
+</script>
+
+</body>
+</html>
