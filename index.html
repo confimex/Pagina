@@ -23,20 +23,27 @@
             padding: 40px 20px;
         }
         
-        /* IMAGENES SIN DEFORMACIÓN */
+        /* IMÁGENES MÁS CONTROLADAS */
         .img {
             width: 100%;
-            max-width: 900px;
-            height: auto;                    /* ← Clave: permite altura natural */
+            max-width: 900px;           /* límite máximo de ancho */
+            height: auto;
             display: block;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             border-radius: 10px;
-            object-fit: contain;             /* mantiene proporción completa */
         }
         
+        /* Hero más grande pero controlado */
         .hero .img {
-            height: 420px;                   /* Hero puede tener altura fija */
-            object-fit: cover;               /* Hero se puede recortar un poco */
+            height: 380px;              /* altura fija para el hero */
+            object-fit: cover;          /* recorta para que quede bien */
+            object-position: center;
+        }
+        
+        /* Imágenes normales (incluyendo la vertical de capacitación) */
+        .normal-img {
+            max-height: 520px;          /* ← Aquí controlamos que ninguna sea demasiado alta */
+            object-fit: contain;        /* mantiene proporción sin deformar */
         }
         
         .grid {
@@ -49,6 +56,12 @@
             .grid {
                 grid-template-columns: 1fr;
             }
+            .hero .img {
+                height: 300px;
+            }
+            .normal-img {
+                max-height: 420px;
+            }
         }
         
         .hero {
@@ -57,13 +70,13 @@
         
         .hero h1 {
             margin: 25px 0 10px;
-            font-size: 2.2em;
+            font-size: 2.1em;
         }
         
         .hero p {
             color: #FFC107;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.15em;
         }
         
         .btn {
@@ -115,23 +128,23 @@
 
     <!-- ANTES / DESPUÉS -->
     <div class="container grid">
-        <img src="antes.jpg" class="img" alt="Antes">
-        <img src="despues.jpg" class="img" alt="Después">
+        <img src="antes.jpg" class="img normal-img" alt="Antes">
+        <img src="despues.jpg" class="img normal-img" alt="Después">
     </div>
 
-    <!-- CAPACITACIÓN (esta es la vertical 4:5) -->
+    <!-- CAPACITACIÓN -->
     <div class="container" style="text-align:center;">
-        <img src="capacitacion.jpg" class="img" alt="La capacitación es el cambio">
+        <img src="capacitacion.jpg" class="img normal-img" alt="La capacitación es el cambio">
     </div>
 
     <!-- DIAGNÓSTICO -->
     <div class="container" style="text-align:center;">
-        <img src="asesoria.jpg" class="img" alt="Diagnóstico de planta">
+        <img src="asesoria.jpg" class="img normal-img" alt="Diagnóstico de planta">
     </div>
 
     <!-- TEST -->
     <div class="container" style="text-align:center;">
-        <img src="test.jpg" class="img" alt="Responde el test">
+        <img src="test.jpg" class="img normal-img" alt="Responde el test">
     </div>
 
     <!-- MODAL -->
