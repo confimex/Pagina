@@ -6,65 +6,55 @@
 <title>CONFIMEX</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial, sans-serif;background:#fff;color:#222;}
-
-/* CONTENEDOR ORIGINAL (EL QUE FUNCIONA) */
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:40px 20px;
+body{
+    font-family: Arial;
+    margin:0;
     text-align:center;
 }
 
-/* IMÁGENES COMO ANTES (SIN INVENTOS) */
-.img{
-    width:100%;
-    max-width:1000px;
-    height:auto;  /* 🔥 CLAVE */
+.section{
+    padding:40px 20px;
+}
+
+/* 🔥 IMÁGENES PERFECTAS (NO SE ROMPEN) */
+img{
+    width:90%;
+    max-width:900px;
+    height:auto;
+    margin:20px auto;
     display:block;
-    margin:30px auto;
     border-radius:10px;
 }
 
-/* GRID ANTES / DESPUÉS */
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1.4fr;
-    gap:20px;
-}
-@media(max-width:768px){
-    .grid{grid-template-columns:1fr;}
-}
-
-/* BOTONES */
+/* BOTÓN */
 .btn{
     background:#E65C2E;
-    color:#fff;
+    color:white;
     padding:15px 25px;
     border:none;
     border-radius:8px;
-    margin-top:15px;
     cursor:pointer;
+    margin-top:10px;
 }
 
 /* MODAL */
 .modal{
     display:none;
     position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
 }
+
 .modal-content{
-    background:#fff;
+    background:white;
     padding:20px;
-    max-width:600px;
     width:90%;
-    max-height:90%;
-    overflow:auto;
+    max-width:500px;
 }
 </style>
 </head>
@@ -72,94 +62,58 @@ body{font-family:Arial, sans-serif;background:#fff;color:#222;}
 <body>
 
 <!-- LOGO -->
-<div class="container">
-<img src="logo.png" style="width:280px;">
+<div class="section">
+<img src="logo.png" style="max-width:250px;">
 </div>
 
 <!-- HERO -->
-<div class="container">
-<img src="hero.jpg" class="img">
-
+<div class="section">
+<img src="hero.jpg">
 <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
 <p style="color:#FFC107;font-weight:bold;">
 Reduce costos, mejora tiempos y controla producción
 </p>
-
-<a href="https://wa.me/521XXXXXXXXXX" class="btn">
-SOLICITA ASESORÍA
-</a>
+<a href="https://wa.me/521XXXXXXXXXX" class="btn">SOLICITA ASESORÍA</a>
 </div>
 
-<!-- ANTES / DESPUÉS -->
-<div class="container grid">
-<img src="antes.jpg" class="img">
-<img src="despues.jpg" class="img">
+<!-- ANTES DESPUÉS -->
+<div class="section">
+<img src="antes.jpg">
+<img src="despues.jpg">
 </div>
 
 <!-- DIAGNÓSTICO -->
-<div class="container">
-<img src="asesoria.jpg" class="img">
-<button class="btn" onclick="abrirModal('form')">
-SOLICITAR ASESORÍA
-</button>
+<div class="section">
+<img src="asesoria.jpg">
+<button class="btn" onclick="abrir('form')">SOLICITAR ASESORÍA</button>
 </div>
 
 <!-- CAPACITACIÓN -->
-<div class="container">
-<img src="capacitacion.jpg" class="img">
-<button class="btn" onclick="abrirVideo('video1')">
-MÁS INFORMACIÓN
-</button>
-</div>
-
-<!-- TRAZO -->
-<div class="container">
-<img src="trazo.jpg" class="img">
-<button class="btn" onclick="abrirVideo('video2')">
-MÁS FUNCIONES
-</button>
+<div class="section">
+<img src="capacitacion.jpg">
+<button class="btn" onclick="video()">VER VIDEO</button>
 </div>
 
 <!-- CERTIFICACIÓN -->
-<div class="container">
-<img src="certificacion.jpg" class="img">
-<button class="btn" onclick="abrirModal('cert')">
-OTRAS CERTIFICACIONES
-</button>
-</div>
-
-<!-- PLOTER -->
-<div class="container">
-<img src="ploter.jpg" class="img">
-<button class="btn" onclick="abrirVideo('video3')">
-OTRAS VENTAJAS
-</button>
-</div>
-
-<!-- CORTE -->
-<div class="container">
-<img src="corte.jpg" class="img">
-<button class="btn" onclick="abrirVideo('video4')">
-VER VIDEO
-</button>
+<div class="section">
+<img src="certificacion.jpg">
+<button class="btn" onclick="abrir('cert')">CERTIFICACIONES</button>
 </div>
 
 <!-- TEST -->
-<div class="container">
-<img src="test.jpg" class="img">
-<button class="btn" onclick="abrirModal('test')">
-RESPONDE EL TEST
-</button>
+<div class="section">
+<img src="test.jpg">
+<button class="btn" onclick="abrir('test')">RESPONDE EL TEST</button>
 </div>
 
 <!-- MODAL -->
-<div id="modal" class="modal">
+<div class="modal" id="modal">
 <div class="modal-content" id="contenido"></div>
 </div>
 
 <script>
 
-function abrirModal(tipo){
+function abrir(tipo){
 let c = document.getElementById("contenido");
 
 if(tipo=="cert"){
@@ -168,64 +122,54 @@ c.innerHTML = `
 <ul>
 <li>Cortador</li>
 <li>Trazador</li>
-<li>Desarrollador de fichas técnicas</li>
+<li>Fichas técnicas</li>
 </ul>`;
 }
 
 if(tipo=="form"){
 c.innerHTML = `
-<h2>Solicita Asesoría</h2>
-<input placeholder="Nombre" style="width:100%;padding:10px;margin:10px 0;">
-<input placeholder="Teléfono" style="width:100%;padding:10px;margin:10px 0;">
-<button class="btn">Enviar</button>
-`;
+<h2>Asesoría</h2>
+<input placeholder="Nombre" style="width:100%;margin:10px 0;padding:10px;">
+<input placeholder="Teléfono" style="width:100%;margin:10px 0;padding:10px;">
+<button class="btn">Enviar</button>`;
 }
 
-/* 🔥 TEST REAL FUNCIONAL */
+/* 🔥 TEST FUNCIONA */
 if(tipo=="test"){
 c.innerHTML = `
-<h2>Diagnóstico rápido</h2>
+<h2>Diagnóstico</h2>
 
-<p>¿Usas patrones de cartón?</p>
-<select id="q1"><option>SI</option><option>NO</option></select>
+<p>¿Usas cartón?</p>
+<select id="a"><option>SI</option><option>NO</option></select>
 
-<p>¿Tienes control de consumo de tela?</p>
-<select id="q2"><option>SI</option><option>NO</option></select>
-
-<p>¿Tus tiempos de entrega son precisos?</p>
-<select id="q3"><option>SI</option><option>NO</option></select>
+<p>¿Controlas tela?</p>
+<select id="b"><option>SI</option><option>NO</option></select>
 
 <br><br>
-<button class="btn" onclick="resultado()">Ver resultado</button>
+<button class="btn" onclick="res()">Resultado</button>
 
-<div id="resultado" style="margin-top:20px;font-weight:bold;"></div>
-`;
+<p id="r"></p>`;
 }
 
 document.getElementById("modal").style.display="flex";
 }
 
-function resultado(){
-let score = 0;
+function res(){
+let score=0;
 
-if(document.getElementById("q1").value=="SI") score++;
-if(document.getElementById("q2").value=="NO") score++;
-if(document.getElementById("q3").value=="NO") score++;
+if(document.getElementById("a").value=="SI") score++;
+if(document.getElementById("b").value=="NO") score++;
 
-let texto = "";
-
-if(score>=2){
-texto = "Tu planta necesita optimización. Te recomendamos asesoría.";
+if(score>=1){
+document.getElementById("r").innerText="Necesitas optimizar tu planta";
 }else{
-texto = "Vas bien, pero puedes mejorar tu productividad.";
+document.getElementById("r").innerText="Vas bien pero puedes mejorar";
+}
 }
 
-document.getElementById("resultado").innerText = texto;
-}
-
-function abrirVideo(id){
+function video(){
 document.getElementById("contenido").innerHTML =
-`<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>`;
+`<iframe width="100%" height="300" src="https://www.youtube.com/embed/VIDEO_ID"></iframe>`;
 document.getElementById("modal").style.display="flex";
 }
 
