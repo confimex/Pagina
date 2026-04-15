@@ -3,224 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONFIMEX</title>
+<title>CONFIMÉX</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#fff;}
-section{padding:60px 20px;text-align:center;}
-h1,h2{margin:10px 0;}
-.btn{
-background:#E65C2E;
-color:#fff;
-padding:15px 30px;
-border:none;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-display:inline-block;
-text-decoration:none;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
 }
 
-/* HERO */
-.hero{
-background:#0F2C3F;
-color:white;
+/* ===== IMÁGENES CONTROLADAS ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* IMÁGENES */
-.img-full{width:100%;max-width:1000px;margin:auto;display:block;border-radius:10px;}
-
-/* GRID */
-.grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.card{max-width:500px;flex:1}
-
-/* MODAL VIDEO */
-.modal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
+.section {
+    padding: 40px 20px;
+    text-align: center;
 }
-.modal iframe{width:90%;height:60%;}
-.close{position:absolute;top:20px;right:20px;color:white;font-size:30px;cursor:pointer;}
 
-/* LOGO ANIMADO */
-.logo-build img{
-width:80px;
-opacity:0;
-transform:translateY(20px);
-animation:appear 1s forwards;
+.section-img {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    border-radius: 12px;
 }
-.logo-build img:nth-child(2){animation-delay:0.3s;}
-.logo-build img:nth-child(3){animation-delay:0.6s;}
 
-@keyframes appear{
-to{opacity:1;transform:translateY(0);}
+.hero-img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+/* ===== ANTES / DESPUÉS ===== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    background: #E65C2E;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content {
+    background:#fff;
+    padding:20px;
+    max-width:800px;
+    width:90%;
+}
+
+/* ===== LOGO ARMADO ===== */
+.logo-build img {
+    position:absolute;
+    opacity:0;
+    animation: aparecer 1s forwards;
+}
+
+.logo-build img:nth-child(1){animation-delay:0.3s;}
+.logo-build img:nth-child(2){animation-delay:0.6s;}
+.logo-build img:nth-child(3){animation-delay:0.9s;}
+
+@keyframes aparecer {
+    to {opacity:1;}
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="logo-build">
-        <img src="logo1.png">
-        <img src="logo2.png">
-        <img src="logo3.png">
-    </div>
+<!-- LOGO ANIMADO -->
+<div class="section logo-build" style="position:relative; height:200px;">
+    <img src="logo1.png">
+    <img src="logo2.png">
+    <img src="logo3.png">
+</div>
 
+<!-- HERO -->
+<div class="section">
+    <img src="hero.jpg" class="hero-img">
     <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
-    <p style="color:yellow;font-size:1.2rem;">
-        Reduce costos, mejora tiempos y controla producción
+    <p style="color:#FFC107; font-weight:bold;">
+        Reduce costos, mejora tiempos, y controla producción
     </p>
 
-    <a class="btn" href="https://wa.me/521XXXXXXXXXX" target="_blank">
-        SOLICITA ASESORÍA
-    </a>
-</section>
+    <a class="btn" href="https://wa.me/521XXXXXXXXXX">SOLICITA ASESORÍA</a>
+</div>
 
-<!-- TRANSFORMACIÓN -->
-<section>
-    <h2>TRANSFORMACIÓN REAL</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="antes.jpg" class="img-full">
-            <p>ANTES</p>
-        </div>
-        <div class="card">
-            <img src="despues.jpg" class="img-full" style="transform:scale(1.1);">
-            <p>DESPUÉS</p>
-        </div>
-    </div>
-</section>
+<!-- ANTES / DESPUÉS -->
+<div class="section grid-2">
+    <img src="antes.jpg" class="section-img">
+    <img src="despues.jpg" class="section-img">
+</div>
 
 <!-- DIAGNÓSTICO -->
-<section>
-    <img src="diagnostico.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="mostrarForm()">SOLICITAR ASESORÍA</button>
-</section>
-
-<!-- FORM -->
-<section id="formulario" style="display:none;">
-<h2>Diagnóstico</h2>
-<form action="mailto:tuemail@gmail.com" method="post" enctype="text/plain">
-<input placeholder="Empresa" required><br><br>
-<input placeholder="Ciudad"><br><br>
-<input placeholder="Nombre"><br><br>
-<input placeholder="Correo"><br><br>
-<input placeholder="Teléfono"><br><br>
-<button class="btn">Enviar</button>
-</form>
-</section>
+<div class="section">
+    <img src="asesoria.jpg" class="section-img">
+    <button class="btn" onclick="abrirModal('formulario')">SOLICITAR ASESORÍA</button>
+</div>
 
 <!-- CAPACITACIÓN -->
-<section>
-    <img src="capacitacion.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO1')">
-        MÁS INFORMACIÓN
-    </button>
-</section>
+<div class="section">
+    <img src="capacitacion.jpg" class="section-img">
+    <button class="btn" onclick="abrirVideo('video1')">MÁS INFORMACIÓN</button>
+</div>
 
 <!-- TRAZO -->
-<section>
-    <img src="trazo.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO2')">
-        MÁS FUNCIONES
-    </button>
-</section>
+<div class="section">
+    <img src="trazo.jpg" class="section-img">
+    <button class="btn" onclick="abrirVideo('video2')">MÁS FUNCIONES</button>
+</div>
 
 <!-- CERTIFICACIÓN -->
-<section>
-    <img src="certificacion.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="mostrarLista()">
-        OTRAS CERTIFICACIONES
-    </button>
-
-    <div id="lista" style="display:none;margin-top:20px;">
-        <p>Trazador</p>
-        <p>Cortador</p>
-        <p>Desarrollador de fichas técnicas</p>
-    </div>
-</section>
+<div class="section">
+    <img src="certificacion.jpg" class="section-img">
+    <button class="btn" onclick="abrirModal('certificaciones')">OTRAS CERTIFICACIONES</button>
+</div>
 
 <!-- PLOTER -->
-<section>
-    <img src="ploter.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO3')">
-        OTRAS VENTAJAS
-    </button>
-</section>
+<div class="section">
+    <img src="ploter.jpg" class="section-img">
+    <button class="btn" onclick="abrirVideo('video3')">OTRAS VENTAJAS</button>
+</div>
 
 <!-- CORTE -->
-<section>
-    <img src="corte.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO4')">
-        VER VIDEO
-    </button>
-</section>
+<div class="section">
+    <img src="corte.jpg" class="section-img">
+    <button class="btn" onclick="abrirVideo('video4')">VER VIDEO</button>
+</div>
 
 <!-- TEST -->
-<section>
-    <img src="test.jpg" class="img-full">
-    <br><br>
-    <button class="btn" onclick="mostrarTest()">
-        RESPONDE EL TEST
-    </button>
-</section>
+<div class="section">
+    <img src="test.jpg" class="section-img">
+    <button class="btn" onclick="abrirModal('test')">RESPONDE EL TEST</button>
+</div>
 
-<!-- TEST SIMPLE -->
-<section id="test" style="display:none;">
-<h2>Test rápido</h2>
-
-<p>¿Tu planta está desorganizada?</p>
-<button onclick="resultado(true)">Sí</button>
-<button onclick="resultado(false)">No</button>
-
-<p id="resultado"></p>
-</section>
-
-<!-- MODAL VIDEO -->
-<div class="modal" id="modal">
-<span class="close" onclick="cerrar()">X</span>
-<iframe id="frame" src=""></iframe>
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="cerrarModal()">
+    <div class="modal-content" id="contenido"></div>
 </div>
 
 <script>
-function video(link){
-document.getElementById("modal").style.display="flex";
-document.getElementById("frame").src=link;
+function abrirModal(tipo){
+    let contenido = document.getElementById("contenido");
+
+    if(tipo=="certificaciones"){
+        contenido.innerHTML = `
+        <h2>Certificaciones</h2>
+        <ul>
+        <li>Trazador</li>
+        <li>Cortador</li>
+        <li>Desarrollador de fichas técnicas</li>
+        </ul>`;
+    }
+
+    if(tipo=="formulario"){
+        contenido.innerHTML = `
+        <h2>Formulario</h2>
+        <input placeholder="Nombre"><br><br>
+        <input placeholder="Email"><br><br>
+        <button>Enviar</button>`;
+    }
+
+    if(tipo=="test"){
+        contenido.innerHTML = `<h2>Cuestionario</h2><p>Aquí va tu test</p>`;
+    }
+
+    document.getElementById("modal").style.display="flex";
 }
 
-function cerrar(){
-document.getElementById("modal").style.display="none";
-document.getElementById("frame").src="";
+function abrirVideo(id){
+    document.getElementById("contenido").innerHTML =
+    `<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>`;
+    document.getElementById("modal").style.display="flex";
 }
 
-function mostrarForm(){
-document.getElementById("formulario").style.display="block";
-}
-
-function mostrarLista(){
-document.getElementById("lista").style.display="block";
-}
-
-function mostrarTest(){
-document.getElementById("test").style.display="block";
-}
-
-function resultado(r){
-document.getElementById("resultado").innerText =
-r ? "Necesitas asesoría urgente" : "Vas bien pero puedes mejorar";
+function cerrarModal(){
+    document.getElementById("modal").style.display="none";
 }
 </script>
 
