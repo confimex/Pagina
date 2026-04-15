@@ -5,229 +5,224 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CONFIMEX</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-
 <style>
-:root{
---azul:#0A2B3E;
---naranja:#E65C2E;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Poppins',sans-serif;
-color:#333;
-}
-
-/* HEADER */
-header{
-text-align:center;
-padding:20px;
-}
-
-.logo{
-width:350px;
-max-width:90%;
+body{margin:0;font-family:Arial;background:#fff;}
+section{padding:60px 20px;text-align:center;}
+h1,h2{margin:10px 0;}
+.btn{
+background:#E65C2E;
+color:#fff;
+padding:15px 30px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+display:inline-block;
+text-decoration:none;
 }
 
 /* HERO */
 .hero{
-background:linear-gradient(rgba(10,43,62,0.7),rgba(10,43,62,0.7)),url('hero.jpg');
-background-size:cover;
-background-position:center;
+background:#0F2C3F;
 color:white;
-text-align:center;
-padding:120px 20px;
 }
 
-.hero h1{
-font-size:3rem;
-font-weight:900;
-}
+/* IMÁGENES */
+.img-full{width:100%;max-width:1000px;margin:auto;display:block;border-radius:10px;}
 
-.hero p{
-font-size:1.2rem;
-margin:20px 0;
-}
+/* GRID */
+.grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.card{max-width:500px;flex:1}
 
-/* BOTONES */
-.btn{
-background:var(--naranja);
-color:white;
-padding:15px 30px;
-border-radius:6px;
-text-decoration:none;
-display:inline-block;
-font-weight:bold;
-}
-
-.btn:hover{
-background:#c94a1f;
-}
-
-/* SECCIONES */
-.seccion{
-padding:60px 20px;
-text-align:center;
-}
-
-.grid{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
-
-.card{
-width:300px;
-background:#f4f4f4;
-border-radius:10px;
-padding:15px;
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-/* FORM */
-form{
-max-width:400px;
-margin:30px auto;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-input,button{
-padding:12px;
-border-radius:6px;
-border:none;
-}
-
-button{
-background:var(--naranja);
-color:white;
-font-weight:bold;
-}
-
-/* WHATSAPP */
-.whatsapp{
+/* MODAL VIDEO */
+.modal{
+display:none;
 position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
 }
+.modal iframe{width:90%;height:60%;}
+.close{position:absolute;top:20px;right:20px;color:white;font-size:30px;cursor:pointer;}
 
-/* FOOTER */
-footer{
-background:var(--azul);
-color:white;
-text-align:center;
-padding:30px;
+/* LOGO ANIMADO */
+.logo-build img{
+width:80px;
+opacity:0;
+transform:translateY(20px);
+animation:appear 1s forwards;
 }
+.logo-build img:nth-child(2){animation-delay:0.3s;}
+.logo-build img:nth-child(3){animation-delay:0.6s;}
 
-@media(max-width:768px){
-.hero h1{font-size:2rem;}
+@keyframes appear{
+to{opacity:1;transform:translateY(0);}
 }
 </style>
+
 </head>
-
 <body>
-
-<!-- LOGO -->
-<header>
-<img src="logo.png" class="logo">
-</header>
 
 <!-- HERO -->
 <section class="hero">
-<h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
-<p>Reduce costos, mejora tiempos y controla tu producción</p>
-<a href="#contacto" class="btn">SOLICITAR ASESORÍA</a>
+    <div class="logo-build">
+        <img src="logo1.png">
+        <img src="logo2.png">
+        <img src="logo3.png">
+    </div>
+
+    <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
+    <p style="color:yellow;font-size:1.2rem;">
+        Reduce costos, mejora tiempos y controla producción
+    </p>
+
+    <a class="btn" href="https://wa.me/521XXXXXXXXXX" target="_blank">
+        SOLICITA ASESORÍA
+    </a>
 </section>
 
-<!-- ANTES DESPUES -->
-<section class="seccion">
-<h2>TRANSFORMACIÓN REAL</h2>
-
-<div class="grid">
-
-<div class="card">
-<p><strong>ANTES</strong></p>
-<img src="problema.jpg">
-</div>
-
-<div class="card">
-<p><strong>DESPUÉS</strong></p>
-<img src="antes_despues.jpg">
-</div>
-
-</div>
+<!-- TRANSFORMACIÓN -->
+<section>
+    <h2>TRANSFORMACIÓN REAL</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="antes.jpg" class="img-full">
+            <p>ANTES</p>
+        </div>
+        <div class="card">
+            <img src="despues.jpg" class="img-full" style="transform:scale(1.1);">
+            <p>DESPUÉS</p>
+        </div>
+    </div>
 </section>
 
-<!-- ASESORIA -->
-<section class="seccion">
-<h2>DIAGNÓSTICO GRATUITO</h2>
-
-<div class="grid">
-<div class="card">
-<img src="asesoria.jpg">
-<p>Detectamos pérdidas y optimizamos tu planta directamente en tu taller.</p>
-</div>
-</div>
-
+<!-- DIAGNÓSTICO -->
+<section>
+    <img src="diagnostico.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="mostrarForm()">SOLICITAR ASESORÍA</button>
 </section>
 
-<!-- SERVICIOS -->
-<section class="seccion">
-<h2>SERVICIOS</h2>
-
-<div class="grid">
-
-<div class="card">
-<img src="capacitacion.jpg">
-<p><strong>Capacitación en Patronaje</strong></p>
-</div>
-
-<div class="card">
-<img src="trazo.jpg">
-<p><strong>Trazo Digital</strong></p>
-</div>
-
-<div class="card">
-<img src="certificacion.jpg">
-<p><strong>Certificación</strong></p>
-</div>
-
-</div>
-</section>
-
-<!-- FORMULARIO -->
-<section id="contacto" class="seccion">
-<h2>Solicita Diagnóstico Gratis</h2>
-
-<form action="https://formsubmit.co/adolfoms@yahoo.com" method="POST">
-<input type="text" name="nombre" placeholder="Nombre" required>
-<input type="tel" name="telefono" placeholder="WhatsApp" required>
-<button type="submit">ENVIAR</button>
+<!-- FORM -->
+<section id="formulario" style="display:none;">
+<h2>Diagnóstico</h2>
+<form action="mailto:tuemail@gmail.com" method="post" enctype="text/plain">
+<input placeholder="Empresa" required><br><br>
+<input placeholder="Ciudad"><br><br>
+<input placeholder="Nombre"><br><br>
+<input placeholder="Correo"><br><br>
+<input placeholder="Teléfono"><br><br>
+<button class="btn">Enviar</button>
 </form>
-
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/525512895572text=Quiero%20mejorar%20mi%20planta" class="whatsapp">💬</a>
+<!-- CAPACITACIÓN -->
+<section>
+    <img src="capacitacion.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO1')">
+        MÁS INFORMACIÓN
+    </button>
+</section>
 
-<!-- FOOTER -->
-<footer>
-CONFIMEX | Innovación • Capacitación • Resultados
-</footer>
+<!-- TRAZO -->
+<section>
+    <img src="trazo.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO2')">
+        MÁS FUNCIONES
+    </button>
+</section>
+
+<!-- CERTIFICACIÓN -->
+<section>
+    <img src="certificacion.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="mostrarLista()">
+        OTRAS CERTIFICACIONES
+    </button>
+
+    <div id="lista" style="display:none;margin-top:20px;">
+        <p>Trazador</p>
+        <p>Cortador</p>
+        <p>Desarrollador de fichas técnicas</p>
+    </div>
+</section>
+
+<!-- PLOTER -->
+<section>
+    <img src="ploter.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO3')">
+        OTRAS VENTAJAS
+    </button>
+</section>
+
+<!-- CORTE -->
+<section>
+    <img src="corte.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="video('https://www.youtube.com/embed/VIDEO4')">
+        VER VIDEO
+    </button>
+</section>
+
+<!-- TEST -->
+<section>
+    <img src="test.jpg" class="img-full">
+    <br><br>
+    <button class="btn" onclick="mostrarTest()">
+        RESPONDE EL TEST
+    </button>
+</section>
+
+<!-- TEST SIMPLE -->
+<section id="test" style="display:none;">
+<h2>Test rápido</h2>
+
+<p>¿Tu planta está desorganizada?</p>
+<button onclick="resultado(true)">Sí</button>
+<button onclick="resultado(false)">No</button>
+
+<p id="resultado"></p>
+</section>
+
+<!-- MODAL VIDEO -->
+<div class="modal" id="modal">
+<span class="close" onclick="cerrar()">X</span>
+<iframe id="frame" src=""></iframe>
+</div>
+
+<script>
+function video(link){
+document.getElementById("modal").style.display="flex";
+document.getElementById("frame").src=link;
+}
+
+function cerrar(){
+document.getElementById("modal").style.display="none";
+document.getElementById("frame").src="";
+}
+
+function mostrarForm(){
+document.getElementById("formulario").style.display="block";
+}
+
+function mostrarLista(){
+document.getElementById("lista").style.display="block";
+}
+
+function mostrarTest(){
+document.getElementById("test").style.display="block";
+}
+
+function resultado(r){
+document.getElementById("resultado").innerText =
+r ? "Necesitas asesoría urgente" : "Vas bien pero puedes mejorar";
+}
+</script>
 
 </body>
 </html>
