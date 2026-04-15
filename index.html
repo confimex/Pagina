@@ -8,59 +8,76 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root { --azul:#0A2B3E; --naranja:#E65C2E; }
+:root{
+--azul:#0A2B3E;
+--naranja:#E65C2E;
+}
 
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;}
 
-/* LOGO */
-header{text-align:center;padding:20px;}
-.logo{width:380px;max-width:90%;}
+body{
+font-family:'Poppins',sans-serif;
+color:#333;
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:20px;
+}
+
+.logo{
+width:350px;
+max-width:90%;
+}
 
 /* HERO */
 .hero{
-display:flex;
-justify-content:center;
-background:#0A2B3E;
-padding:40px 0;
+background:linear-gradient(rgba(10,43,62,0.7),rgba(10,43,62,0.7)),url('hero.jpg');
+background-size:cover;
+background-position:center;
+color:white;
+text-align:center;
+padding:120px 20px;
 }
 
-.animacion{
-position:relative;
-width:800px;
-height:1000px;
+.hero h1{
+font-size:3rem;
+font-weight:900;
 }
 
-.animacion img{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
+.hero p{
+font-size:1.2rem;
+margin:20px 0;
 }
-
-/* CAPAS */
-.capa{opacity:0;animation:fade 1s forwards;}
-.capa1{animation-delay:.5s;}
-.capa2{animation-delay:1.5s;}
-.capa3{animation-delay:2.5s;}
-.capa4{animation-delay:3.5s;}
-
-@keyframes fade{to{opacity:1;}}
 
 /* BOTONES */
 .btn{
 background:var(--naranja);
 color:white;
-padding:14px 25px;
+padding:15px 30px;
 border-radius:6px;
 text-decoration:none;
 display:inline-block;
-margin-top:15px;
+font-weight:bold;
 }
 
-/* GRID */
-.seccion{padding:60px 20px;text-align:center;}
-.grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.btn:hover{
+background:#c94a1f;
+}
+
+/* SECCIONES */
+.seccion{
+padding:60px 20px;
+text-align:center;
+}
+
+.grid{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
 
 .card{
 width:300px;
@@ -69,25 +86,15 @@ border-radius:10px;
 padding:15px;
 }
 
-.card img{width:100%;border-radius:10px;}
-
-/* WHATSAPP FLOAT */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-text-decoration:none;
+.card img{
+width:100%;
+border-radius:10px;
 }
 
 /* FORM */
 form{
 max-width:400px;
-margin:20px auto;
+margin:30px auto;
 display:flex;
 flex-direction:column;
 gap:10px;
@@ -99,89 +106,24 @@ border-radius:6px;
 border:none;
 }
 
-button{background:var(--naranja);color:white;font-weight:bold;}
-
-footer{
-background:var(--azul);
-color:white;
-text-align:center;
-padding:30px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<img src="logo.png" class="logo">
-</header>
-
-<!-- HERO ANIMADO -->
-<section class="hero">
-<div class="animacion">
-
-<img src="fondo.jpg">
-<img src="capa1.png" class="capa capa1">
-<img src="capa2.png" class="capa capa2">
-<img src="capa3.png" class="capa capa3">
-<img src="capa4.png" class="capa capa4">
-
-</div>
-</section>
-
-
-@keyframes fade{to{opacity:1;}}
-
-.hero-texto{
-position:absolute;
-top:25%;
-width:100%;
-text-align:center;
-color:white;
-}
-
-.hero-texto h1{font-size:3rem;font-weight:900;}
-.hero-texto p{font-size:1.2rem;margin-top:10px;}
-
-.btn{
+button{
 background:var(--naranja);
 color:white;
-padding:14px 30px;
-margin-top:20px;
-display:inline-block;
-text-decoration:none;
 font-weight:bold;
-border-radius:6px;
 }
 
-/* SECCIONES */
-.seccion{padding:60px 20px;text-align:center;}
-.grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-
-.card{
-width:300px;
-background:#f4f4f4;
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
 padding:15px;
-border-radius:10px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
 }
-
-.card img{width:100%;border-radius:10px;}
-
-/* CERTIFICACIONES */
-.cert{
-background:#f9f9f9;
-padding:60px 20px;
-}
-
-.card-click{
-background:#fff;
-padding:20px;
-border-radius:10px;
-cursor:pointer;
-width:250px;
-}
-
-.lista{display:none;text-align:left;margin-top:10px;}
 
 /* FOOTER */
 footer{
@@ -191,6 +133,9 @@ text-align:center;
 padding:30px;
 }
 
+@media(max-width:768px){
+.hero h1{font-size:2rem;}
+}
 </style>
 </head>
 
@@ -203,23 +148,12 @@ padding:30px;
 
 <!-- HERO -->
 <section class="hero">
-
-<img src="fondo.jpg">
-
-<img src="capa1.png" class="capa capa1">
-<img src="capa2.png" class="capa capa2">
-<img src="capa3.png" class="capa capa3">
-<img src="capa4.png" class="capa capa4">
-
-<div class="hero-texto">
-<h1>OPTIMIZA TU PLANTA</h1>
-<p>Transformamos talleres en empresas productivas</p>
-<a href="#asesoria" class="btn">SOLICITAR ASESORÍA</a>
-</div>
-
+<h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
+<p>Reduce costos, mejora tiempos y controla tu producción</p>
+<a href="#contacto" class="btn">SOLICITAR ASESORÍA</a>
 </section>
 
-<!-- ANTES / DESPUES -->
+<!-- ANTES DESPUES -->
 <section class="seccion">
 <h2>TRANSFORMACIÓN REAL</h2>
 
@@ -239,15 +173,13 @@ padding:30px;
 </section>
 
 <!-- ASESORIA -->
-<section id="asesoria" class="seccion">
-
+<section class="seccion">
 <h2>DIAGNÓSTICO GRATUITO</h2>
 
 <div class="grid">
 <div class="card">
 <img src="asesoria.jpg">
 <p>Detectamos pérdidas y optimizamos tu planta directamente en tu taller.</p>
-<a href="#" class="btn">SOLICITAR</a>
 </div>
 </div>
 
@@ -255,75 +187,47 @@ padding:30px;
 
 <!-- SERVICIOS -->
 <section class="seccion">
-
 <h2>SERVICIOS</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="certificacion.jpg">
-<p>CERTIFICACIÓN</p>
-</div>
-
-<div class="card">
 <img src="capacitacion.jpg">
-<p>CAPACITACIÓN</p>
+<p><strong>Capacitación y Patronaje</strong></p>
 </div>
 
 <div class="card">
-<img src="asistencia.jpg">
-<p>ASISTENCIA</p>
+<img src="trazo.jpg">
+<p><strong>Trazo Digital</strong></p>
+</div>
+
+<div class="card">
+<img src="certificacion.jpg">
+<p><strong>Certificación</strong></p>
 </div>
 
 </div>
+</section>
+
+<!-- FORMULARIO -->
+<section id="contacto" class="seccion">
+<h2>Solicita Diagnóstico Gratis</h2>
+
+<form action="https://formsubmit.co/TUCORREO@gmail.com" method="POST">
+<input type="text" name="nombre" placeholder="Nombre" required>
+<input type="tel" name="telefono" placeholder="WhatsApp" required>
+<button type="submit">ENVIAR</button>
+</form>
 
 </section>
 
-<!-- CERTIFICACIONES CLICK -->
-<section class="cert">
+<!-- WHATSAPP -->
+<a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20mejorar%20mi%20planta" class="whatsapp">💬</a>
 
-<h2>ESPECIALIDADES</h2>
-
-<div class="grid">
-
-<div class="card-click" onclick="toggle('corte')">
-CORTADOR
-<div id="corte" class="lista">
-<p>- Corte profesional</p>
-<p>- Optimización tela</p>
-</div>
-</div>
-
-<div class="card-click" onclick="toggle('trazo')">
-TRAZADOR
-<div id="trazo" class="lista">
-<p>- Trazo manual</p>
-<p>- Trazo digital</p>
-</div>
-</div>
-
-<div class="card-click" onclick="toggle('costura')">
-COSTURERA
-<div id="costura" class="lista">
-<p>- Ensamble</p>
-<p>- Calidad</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
+<!-- FOOTER -->
 <footer>
 CONFIMEX | Innovación • Capacitación • Resultados
 </footer>
-
-<script>
-function toggle(id){
-let el=document.getElementById(id);
-el.style.display=(el.style.display==="block")?"none":"block";
-}
-</script>
 
 </body>
 </html>
