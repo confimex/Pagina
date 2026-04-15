@@ -3,169 +3,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONFIMÉX</title>
+<title>CONFIMEX</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff;
+
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial, sans-serif;background:#fff;color:#222;}
+
+/* ===== CONTENEDOR GLOBAL (CLAVE) ===== */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
 }
 
 /* ===== IMÁGENES CONTROLADAS ===== */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.img-box{
+    width:100%;
+    max-width:1000px;
+    margin:30px auto;
 }
 
-.section {
-    padding: 40px 20px;
-    text-align: center;
+.img-box img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:10px;
 }
 
-.section-img {
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    border-radius: 12px;
+/* ===== HERO ===== */
+.hero{
+    text-align:center;
 }
 
-.hero-img {
-    width: 100%;
-    max-height: 600px;
-    object-fit: cover;
+.hero img{
+    max-width:900px;
+    margin:auto;
 }
 
-/* ===== ANTES / DESPUÉS ===== */
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 20px;
-    align-items: center;
+.hero h1{
+    font-size:2.5rem;
+    margin-top:20px;
 }
 
-@media (max-width: 768px) {
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
+.hero p{
+    color:#FFC107;
+    font-weight:bold;
+    margin:10px 0 20px;
 }
 
 /* ===== BOTONES ===== */
-.btn {
-    background: #E65C2E;
-    color: white;
-    padding: 15px 25px;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    margin-top: 15px;
-    cursor: pointer;
+.btn{
+    display:inline-block;
+    background:#E65C2E;
+    color:#fff;
+    padding:15px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+}
+
+.btn:hover{
+    background:#c94a1f;
+}
+
+/* ===== GRID ANTES / DESPUÉS ===== */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:20px;
+}
+
+@media(max-width:768px){
+    .grid{grid-template-columns:1fr;}
 }
 
 /* ===== MODAL ===== */
-.modal {
-    display: none;
-    position: fixed;
+.modal{
+    display:none;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    background: rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
 }
 
-.modal-content {
+.modal-content{
     background:#fff;
     padding:20px;
     max-width:800px;
     width:90%;
 }
 
-/* ===== LOGO ARMADO ===== */
-.logo-build img {
-    position:absolute;
-    opacity:0;
-    animation: aparecer 1s forwards;
+/* ===== LOGO ANIMADO ===== */
+.logo{
+    text-align:center;
+    padding:40px 0;
 }
 
-.logo-build img:nth-child(1){animation-delay:0.3s;}
-.logo-build img:nth-child(2){animation-delay:0.6s;}
-.logo-build img:nth-child(3){animation-delay:0.9s;}
-
-@keyframes aparecer {
-    to {opacity:1;}
+.logo img{
+    width:300px;
+    animation:fade 1s ease-in-out;
 }
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- LOGO ANIMADO -->
-<div class="section logo-build" style="position:relative; height:200px;">
-    <img src="logo1.png">
-    <img src="logo2.png">
-    <img src="logo3.png">
+<!-- LOGO -->
+<div class="logo">
+    <img src="logo.png">
 </div>
 
 <!-- HERO -->
-<div class="section">
-    <img src="hero.jpg" class="hero-img">
-    <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
-    <p style="color:#FFC107; font-weight:bold;">
-        Reduce costos, mejora tiempos, y controla producción
-    </p>
+<div class="container hero">
+    <img src="hero.jpg">
 
-    <a class="btn" href="https://wa.me/521XXXXXXXXXX">SOLICITA ASESORÍA</a>
+    <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
+
+    <p>Reduce costos, mejora tiempos y controla producción</p>
+
+    <a href="https://wa.me/521XXXXXXXXXX" class="btn">
+        SOLICITA ASESORÍA
+    </a>
 </div>
 
-<!-- ANTES / DESPUÉS -->
-<div class="section grid-2">
-    <img src="antes.jpg" class="section-img">
-    <img src="despues.jpg" class="section-img">
+<!-- TRANSFORMACIÓN -->
+<div class="container grid">
+    <div class="img-box">
+        <img src="antes.jpg">
+    </div>
+    <div class="img-box">
+        <img src="despues.jpg">
+    </div>
 </div>
 
 <!-- DIAGNÓSTICO -->
-<div class="section">
-    <img src="asesoria.jpg" class="section-img">
-    <button class="btn" onclick="abrirModal('formulario')">SOLICITAR ASESORÍA</button>
+<div class="container">
+    <div class="img-box">
+        <img src="asesoria.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirModal('form')">
+            SOLICITAR ASESORÍA
+        </button>
+    </div>
 </div>
 
 <!-- CAPACITACIÓN -->
-<div class="section">
-    <img src="capacitacion.jpg" class="section-img">
-    <button class="btn" onclick="abrirVideo('video1')">MÁS INFORMACIÓN</button>
+<div class="container">
+    <div class="img-box">
+        <img src="capacitacion.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirVideo('video1')">
+            MÁS INFORMACIÓN
+        </button>
+    </div>
 </div>
 
 <!-- TRAZO -->
-<div class="section">
-    <img src="trazo.jpg" class="section-img">
-    <button class="btn" onclick="abrirVideo('video2')">MÁS FUNCIONES</button>
+<div class="container">
+    <div class="img-box">
+        <img src="trazo.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirVideo('video2')">
+            MÁS FUNCIONES
+        </button>
+    </div>
 </div>
 
 <!-- CERTIFICACIÓN -->
-<div class="section">
-    <img src="certificacion.jpg" class="section-img">
-    <button class="btn" onclick="abrirModal('certificaciones')">OTRAS CERTIFICACIONES</button>
+<div class="container">
+    <div class="img-box">
+        <img src="certificacion.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirModal('cert')">
+            OTRAS CERTIFICACIONES
+        </button>
+    </div>
 </div>
 
 <!-- PLOTER -->
-<div class="section">
-    <img src="ploter.jpg" class="section-img">
-    <button class="btn" onclick="abrirVideo('video3')">OTRAS VENTAJAS</button>
+<div class="container">
+    <div class="img-box">
+        <img src="ploter.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirVideo('video3')">
+            OTRAS VENTAJAS
+        </button>
+    </div>
 </div>
 
 <!-- CORTE -->
-<div class="section">
-    <img src="corte.jpg" class="section-img">
-    <button class="btn" onclick="abrirVideo('video4')">VER VIDEO</button>
+<div class="container">
+    <div class="img-box">
+        <img src="corte.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirVideo('video4')">
+            VER VIDEO
+        </button>
+    </div>
 </div>
 
 <!-- TEST -->
-<div class="section">
-    <img src="test.jpg" class="section-img">
-    <button class="btn" onclick="abrirModal('test')">RESPONDE EL TEST</button>
+<div class="container">
+    <div class="img-box">
+        <img src="test.jpg">
+    </div>
+
+    <div style="text-align:center;">
+        <button class="btn" onclick="abrirModal('test')">
+            RESPONDE EL TEST
+        </button>
+    </div>
 </div>
 
 <!-- MODAL -->
@@ -174,29 +246,30 @@ img {
 </div>
 
 <script>
-function abrirModal(tipo){
-    let contenido = document.getElementById("contenido");
 
-    if(tipo=="certificaciones"){
-        contenido.innerHTML = `
+function abrirModal(tipo){
+    let c = document.getElementById("contenido");
+
+    if(tipo=="cert"){
+        c.innerHTML = `
         <h2>Certificaciones</h2>
         <ul>
-        <li>Trazador</li>
         <li>Cortador</li>
+        <li>Trazador</li>
         <li>Desarrollador de fichas técnicas</li>
         </ul>`;
     }
 
-    if(tipo=="formulario"){
-        contenido.innerHTML = `
+    if(tipo=="form"){
+        c.innerHTML = `
         <h2>Formulario</h2>
         <input placeholder="Nombre"><br><br>
-        <input placeholder="Email"><br><br>
-        <button>Enviar</button>`;
+        <input placeholder="Teléfono"><br><br>
+        <button class="btn">Enviar</button>`;
     }
 
     if(tipo=="test"){
-        contenido.innerHTML = `<h2>Cuestionario</h2><p>Aquí va tu test</p>`;
+        c.innerHTML = `<h2>Cuestionario</h2><p>Aquí va tu test</p>`;
     }
 
     document.getElementById("modal").style.display="flex";
@@ -211,6 +284,7 @@ function abrirVideo(id){
 function cerrarModal(){
     document.getElementById("modal").style.display="none";
 }
+
 </script>
 
 </body>
