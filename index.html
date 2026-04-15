@@ -3,148 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONFIMEX</title>
+    <title>CONFIMEX | Optimiza tu Planta de Confección</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: Arial, sans-serif;
-            background: #fff;
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
             color: #222;
+            line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1100px;
-            margin: auto;
-            padding: 40px 20px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        /* IMÁGENES MÁS CONTROLADAS */
+
+        /* ====================== IMÁGENES ====================== */
         .img {
             width: 100%;
-            max-width: 900px;           /* límite máximo de ancho */
             height: auto;
             display: block;
-            margin: 0 auto 25px;
-            border-radius: 10px;
+            border-radius: 12px;
+            margin-bottom: 30px;
         }
-        
-        /* Hero más grande pero controlado */
-        .hero .img {
-            height: 380px;              /* altura fija para el hero */
-            object-fit: cover;          /* recorta para que quede bien */
+
+        .hero-img {
+            height: 420px;
+            object-fit: cover;
             object-position: center;
         }
-        
-        /* Imágenes normales (incluyendo la vertical de capacitación) */
-        .normal-img {
-            max-height: 520px;          /* ← Aquí controlamos que ninguna sea demasiado alta */
-            object-fit: contain;        /* mantiene proporción sin deformar */
+
+        .section-img {
+            max-height: 480px;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
-        
+
+        /* ====================== HERO ====================== */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        /* ====================== SECCIONES ====================== */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .section p {
+            font-size: 1.15em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Grid Antes/Después */
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1.3fr;
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
         }
-        
+
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
-            .hero .img {
-                height: 300px;
-            }
-            .normal-img {
-                max-height: 420px;
+            .hero h1 {
+                font-size: 2.2em;
             }
         }
-        
-        .hero {
-            text-align: center;
-        }
-        
-        .hero h1 {
-            margin: 25px 0 10px;
-            font-size: 2.1em;
-        }
-        
-        .hero p {
-            color: #FFC107;
-            font-weight: bold;
-            font-size: 1.15em;
-        }
-        
+
+        /* ====================== BOTONES ====================== */
         .btn {
             background: #E65C2E;
-            color: #fff;
-            padding: 15px 30px;
+            color: white;
+            padding: 16px 32px;
             border: none;
             border-radius: 8px;
-            margin-top: 20px;
-            cursor: pointer;
             font-size: 1.1em;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        
+
+        .btn:hover {
+            background: #d14a1f;
+            transform: translateY(-2px);
+        }
+
+        /* ====================== MODAL ====================== */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 2000;
         }
-        
+
         .modal-content {
-            background: #fff;
-            padding: 30px;
-            max-width: 600px;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
             width: 90%;
+            max-width: 580px;
             max-height: 90vh;
             overflow: auto;
-            border-radius: 12px;
         }
     </style>
 </head>
 <body>
 
-    <!-- LOGO -->
-    <div class="container" style="text-align:center; padding-bottom:20px;">
-        <img src="logo.png" alt="Logo CONFIMEX" style="width:250px;">
-    </div>
-
     <!-- HERO -->
-    <div class="container hero">
-        <img src="hero.jpg" class="img" alt="Optimiza tu planta de confección">
-        <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
-        <p>Reduce costos, mejora tiempos y controla producción</p>
+    <div class="hero">
+        <div class="container">
+            <img src="logo.png" alt="CONFIMEX" style="width:220px; margin-bottom:30px;">
+            <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
+            <p>Reduce costos, mejora tiempos y controla tu producción</p>
+        </div>
     </div>
 
-    <!-- ANTES / DESPUÉS -->
-    <div class="container grid">
-        <img src="antes.jpg" class="img normal-img" alt="Antes">
-        <img src="despues.jpg" class="img normal-img" alt="Después">
+    <!-- ANTES Y DESPUÉS -->
+    <div class="section">
+        <div class="container">
+            <h2>Antes y Después</h2>
+            <div class="grid">
+                <img src="antes.jpg" class="img section-img" alt="Antes">
+                <img src="despues.jpg" class="img section-img" alt="Después">
+            </div>
+        </div>
     </div>
 
     <!-- CAPACITACIÓN -->
-    <div class="container" style="text-align:center;">
-        <img src="capacitacion.jpg" class="img normal-img" alt="La capacitación es el cambio">
+    <div class="section" style="background:#fff;">
+        <div class="container">
+            <img src="capacitacion.jpg" class="img section-img" alt="Capacitación">
+            <h2>LA CAPACITACIÓN ES EL CAMBIO</h2>
+            <p>Acompañamiento en tu planta para dominar la graduación digital.</p>
+        </div>
     </div>
 
     <!-- DIAGNÓSTICO -->
-    <div class="container" style="text-align:center;">
-        <img src="asesoria.jpg" class="img normal-img" alt="Diagnóstico de planta">
+    <div class="section">
+        <div class="container">
+            <img src="asesoria.jpg" class="img section-img" alt="Diagnóstico">
+            <h2>DIAGNÓSTICO DE PLANTA GRATIS</h2>
+            <p>Detectamos tus fugas de dinero sin costo ni compromiso</p>
+        </div>
     </div>
 
     <!-- TEST -->
-    <div class="container" style="text-align:center;">
-        <img src="test.jpg" class="img normal-img" alt="Responde el test">
+    <div class="section" style="background:#fff;">
+        <div class="container">
+            <img src="test.jpg" class="img section-img" alt="Test">
+            <h2>SOLUCIONATE LA VIDA</h2>
+            <p>Revisa este sencillo cuestionario</p>
+            
+            <button class="btn" onclick="abrirModal('test')">RESPONDE EL TEST</button>
+        </div>
     </div>
 
     <!-- MODAL -->
@@ -154,37 +200,37 @@
 
     <script>
         function abrirModal(tipo) {
-            let c = document.getElementById("contenido");
-            if (tipo === "form") {
-                c.innerHTML = `
-                    <h2>Solicita Asesoría</h2>
-                    <input placeholder="Nombre" style="width:100%; padding:12px; margin:10px 0;">
-                    <input placeholder="Teléfono" style="width:100%; padding:12px; margin:10px 0;">
-                    <button class="btn">Enviar</button>
-                `;
-            }
+            const c = document.getElementById("contenido");
+            
             if (tipo === "test") {
                 c.innerHTML = `
-                    <h2>Diagnóstico rápido</h2>
+                    <h2 style="margin-bottom:20px;">Diagnóstico Rápido</h2>
                     <p>¿Usas patrones de cartón?</p>
-                    <select id="q1" style="width:100%; padding:10px; margin-bottom:15px;">
+                    <select id="q1" style="width:100%; padding:12px; margin:10px 0;">
+                        <option value="">Selecciona...</option>
                         <option>SI</option>
                         <option>NO</option>
                     </select>
+                    
                     <p>¿Tienes control de consumo de tela?</p>
-                    <select id="q2" style="width:100%; padding:10px; margin-bottom:15px;">
+                    <select id="q2" style="width:100%; padding:12px; margin:10px 0;">
+                        <option value="">Selecciona...</option>
                         <option>SI</option>
                         <option>NO</option>
                     </select>
+                    
                     <p>¿Tus tiempos de entrega son precisos?</p>
-                    <select id="q3" style="width:100%; padding:10px; margin-bottom:15px;">
+                    <select id="q3" style="width:100%; padding:12px; margin:10px 0;">
+                        <option value="">Selecciona...</option>
                         <option>SI</option>
                         <option>NO</option>
                     </select>
-                    <button class="btn" onclick="resultado()">Ver resultado</button>
-                    <div id="resultado" style="margin-top:20px; font-weight:bold;"></div>
+                    
+                    <button class="btn" onclick="resultado()" style="margin-top:20px;">Ver resultado</button>
+                    <div id="resultado" style="margin-top:25px; font-weight:bold; min-height:60px;"></div>
                 `;
             }
+            
             document.getElementById("modal").style.display = "flex";
         }
 
@@ -194,13 +240,14 @@
             if (document.getElementById("q2").value === "NO") score++;
             if (document.getElementById("q3").value === "NO") score++;
 
-            let texto = score >= 2 
-                ? "⚠️ Tu planta necesita optimización urgente. Te recomendamos asesoría." 
-                : "✔️ Vas bien, pero puedes mejorar tu productividad.";
+            const texto = score >= 2 
+                ? "⚠️ Tu planta necesita optimización urgente.<br>Te recomendamos una asesoría personalizada."
+                : "✔️ Vas por buen camino, pero aún puedes mejorar tu productividad.";
 
-            document.getElementById("resultado").innerText = texto;
+            document.getElementById("resultado").innerHTML = texto;
         }
 
+        // Cerrar modal al clic fuera
         document.getElementById("modal").addEventListener("click", function(e) {
             if (e.target === this) this.style.display = "none";
         });
