@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONFIMEX | Optimiza tu Planta de Confección</title>
+    <title>CONFIMEX | Optimiza tu Planta</title>
     <style>
         * {
             margin: 0;
@@ -12,114 +12,114 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background: #f8f9fa;
             color: #222;
-            line-height: 1.6;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* ====================== IMÁGENES ====================== */
+        /* ==================== CONTROL DE IMÁGENES ==================== */
+        .img-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 35px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
         .img {
             width: 100%;
-            height: auto;
+            height: 380px;           /* Altura fija razonable */
+            object-fit: cover;       /* Recorta para mantener buen aspecto */
+            object-position: center;
             display: block;
-            border-radius: 12px;
-            margin-bottom: 30px;
         }
 
+        /* Para la imagen vertical (capacitacion.jpg) usamos contain */
+        .vertical-img {
+            height: 480px;
+            object-fit: contain;     /* Muestra la imagen completa sin deformar */
+            background: #fff;
+        }
+
+        /* Hero un poco más grande */
         .hero-img {
             height: 420px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .section-img {
-            max-height: 480px;
-            object-fit: contain;
-            background: #fff;
-            padding: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         /* ====================== HERO ====================== */
         .hero {
-            text-align: center;
-            padding: 60px 0 40px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero.jpg');
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('hero.jpg');
             background-size: cover;
             background-position: center;
             color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
         }
 
         .hero h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
+            font-size: 2.6em;
+            margin-bottom: 12px;
         }
 
         .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            font-weight: 500;
+            font-size: 1.25em;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         /* ====================== SECCIONES ====================== */
         .section {
-            padding: 60px 0;
+            padding: 70px 0;
             text-align: center;
         }
 
         .section h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            color: #222;
+            font-size: 2.1em;
+            margin-bottom: 12px;
         }
 
         .section p {
             font-size: 1.15em;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            max-width: 680px;
+            margin: 0 auto 25px;
         }
 
         /* Grid Antes/Después */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 20px;
         }
 
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
-            .hero h1 {
-                font-size: 2.2em;
+            .hero-img, .img {
+                height: 320px;
+            }
+            .vertical-img {
+                height: 420px;
             }
         }
 
-        /* ====================== BOTONES ====================== */
         .btn {
             background: #E65C2E;
             color: white;
-            padding: 16px 32px;
+            padding: 15px 32px;
             border: none;
             border-radius: 8px;
             font-size: 1.1em;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #d14a1f;
-            transform: translateY(-2px);
-        }
-
-        /* ====================== MODAL ====================== */
         .modal {
             display: none;
             position: fixed;
@@ -132,13 +132,13 @@
         }
 
         .modal-content {
-            background: white;
-            padding: 35px;
+            background: #fff;
+            padding: 30px;
             border-radius: 12px;
             width: 90%;
-            max-width: 580px;
-            max-height: 90vh;
-            overflow: auto;
+            max-width: 560px;
+            max-height: 92vh;
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -147,7 +147,7 @@
     <!-- HERO -->
     <div class="hero">
         <div class="container">
-            <img src="logo.png" alt="CONFIMEX" style="width:220px; margin-bottom:30px;">
+            <img src="logo.png" alt="CONFIMEX" style="width:240px; margin-bottom:30px;">
             <h1>OPTIMIZA TU PLANTA DE CONFECCIÓN</h1>
             <p>Reduce costos, mejora tiempos y controla tu producción</p>
         </div>
@@ -158,16 +158,22 @@
         <div class="container">
             <h2>Antes y Después</h2>
             <div class="grid">
-                <img src="antes.jpg" class="img section-img" alt="Antes">
-                <img src="despues.jpg" class="img section-img" alt="Después">
+                <div class="img-container">
+                    <img src="antes.jpg" class="img" alt="Antes">
+                </div>
+                <div class="img-container">
+                    <img src="despues.jpg" class="img" alt="Después">
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- CAPACITACIÓN -->
+    <!-- CAPACITACIÓN (imagen vertical) -->
     <div class="section" style="background:#fff;">
         <div class="container">
-            <img src="capacitacion.jpg" class="img section-img" alt="Capacitación">
+            <div class="img-container">
+                <img src="capacitacion.jpg" class="img vertical-img" alt="La capacitación es el cambio">
+            </div>
             <h2>LA CAPACITACIÓN ES EL CAMBIO</h2>
             <p>Acompañamiento en tu planta para dominar la graduación digital.</p>
         </div>
@@ -176,7 +182,9 @@
     <!-- DIAGNÓSTICO -->
     <div class="section">
         <div class="container">
-            <img src="asesoria.jpg" class="img section-img" alt="Diagnóstico">
+            <div class="img-container">
+                <img src="asesoria.jpg" class="img" alt="Diagnóstico de planta">
+            </div>
             <h2>DIAGNÓSTICO DE PLANTA GRATIS</h2>
             <p>Detectamos tus fugas de dinero sin costo ni compromiso</p>
         </div>
@@ -185,10 +193,11 @@
     <!-- TEST -->
     <div class="section" style="background:#fff;">
         <div class="container">
-            <img src="test.jpg" class="img section-img" alt="Test">
+            <div class="img-container">
+                <img src="test.jpg" class="img" alt="Test">
+            </div>
             <h2>SOLUCIONATE LA VIDA</h2>
             <p>Revisa este sencillo cuestionario</p>
-            
             <button class="btn" onclick="abrirModal('test')">RESPONDE EL TEST</button>
         </div>
     </div>
@@ -199,55 +208,52 @@
     </div>
 
     <script>
-        function abrirModal(tipo) {
+        function abrirModal() {
             const c = document.getElementById("contenido");
-            
-            if (tipo === "test") {
-                c.innerHTML = `
-                    <h2 style="margin-bottom:20px;">Diagnóstico Rápido</h2>
-                    <p>¿Usas patrones de cartón?</p>
-                    <select id="q1" style="width:100%; padding:12px; margin:10px 0;">
-                        <option value="">Selecciona...</option>
-                        <option>SI</option>
-                        <option>NO</option>
-                    </select>
-                    
-                    <p>¿Tienes control de consumo de tela?</p>
-                    <select id="q2" style="width:100%; padding:12px; margin:10px 0;">
-                        <option value="">Selecciona...</option>
-                        <option>SI</option>
-                        <option>NO</option>
-                    </select>
-                    
-                    <p>¿Tus tiempos de entrega son precisos?</p>
-                    <select id="q3" style="width:100%; padding:12px; margin:10px 0;">
-                        <option value="">Selecciona...</option>
-                        <option>SI</option>
-                        <option>NO</option>
-                    </select>
-                    
-                    <button class="btn" onclick="resultado()" style="margin-top:20px;">Ver resultado</button>
-                    <div id="resultado" style="margin-top:25px; font-weight:bold; min-height:60px;"></div>
-                `;
-            }
-            
+            c.innerHTML = `
+                <h2 style="margin-bottom:25px; text-align:center;">Diagnóstico Rápido</h2>
+                
+                <p>¿Usas patrones de cartón?</p>
+                <select id="q1" style="width:100%; padding:12px; margin:12px 0;">
+                    <option value="">Selecciona una opción</option>
+                    <option>SI</option>
+                    <option>NO</option>
+                </select>
+                
+                <p>¿Tienes control de consumo de tela?</p>
+                <select id="q2" style="width:100%; padding:12px; margin:12px 0;">
+                    <option value="">Selecciona una opción</option>
+                    <option>SI</option>
+                    <option>NO</option>
+                </select>
+                
+                <p>¿Tus tiempos de entrega son precisos?</p>
+                <select id="q3" style="width:100%; padding:12px; margin:12px 0;">
+                    <option value="">Selecciona una opción</option>
+                    <option>SI</option>
+                    <option>NO</option>
+                </select>
+                
+                <button class="btn" onclick="verResultado()" style="width:100%; margin-top:20px;">Ver resultado</button>
+                <div id="resultado" style="margin-top:25px; font-size:1.1em; min-height:70px;"></div>
+            `;
             document.getElementById("modal").style.display = "flex";
         }
 
-        function resultado() {
+        function verResultado() {
             let score = 0;
             if (document.getElementById("q1").value === "SI") score++;
             if (document.getElementById("q2").value === "NO") score++;
             if (document.getElementById("q3").value === "NO") score++;
 
             const texto = score >= 2 
-                ? "⚠️ Tu planta necesita optimización urgente.<br>Te recomendamos una asesoría personalizada."
-                : "✔️ Vas por buen camino, pero aún puedes mejorar tu productividad.";
+                ? "⚠️ Tu planta necesita optimización urgente.<br>Te recomendamos agendar una asesoría."
+                : "✔️ Vas por buen camino, pero todavía puedes mejorar.";
 
             document.getElementById("resultado").innerHTML = texto;
         }
 
-        // Cerrar modal al clic fuera
+        // Cerrar modal
         document.getElementById("modal").addEventListener("click", function(e) {
             if (e.target === this) this.style.display = "none";
         });
